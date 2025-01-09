@@ -1,0 +1,75 @@
+.form-steper {
+    position: relative;
+  }
+  
+  .steps {
+    display: flex;
+    gap: 50px;
+    position: relative;
+    z-index: 10; // Ensure steps are above the progress bar
+  }
+  
+  .step {
+    height: 98px;
+    display: flex;
+    color: #12070e;
+    padding: 16px 0px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    z-index: 20; // Steps are above the progress bar
+  
+    p {
+      color: var(--Foundation-neutral-neutral-500, #12070e);
+      text-align: center;
+  
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 18px; /* 112.5% */
+      width:200px;
+    }
+  
+    .icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 24px;
+      width: 36px;
+      height: 36px;
+      z-index: 20; // Icons are above the progress bar
+      background-color: #fff;
+      box-shadow: 0px 2px 6px 0px rgba(16, 24, 40, 0.06);
+    }
+  
+    &.currentStep {
+      color: #1ca3fd;
+  
+      .icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        background: #1ca3fd;
+        border-radius: 24px;
+        box-shadow: 0px 2px 6px 0px rgba(16, 24, 40, 0.06);
+      }
+    }
+  }
+  
+  .progress-bar {
+    width: 1000px; /* Adjust width to span across steps */
+    height: 3px;
+    background-color: #12070e;
+    position: absolute;
+    top: 35px; /* Adjust top positioning */
+    left: 85px;
+    z-index: 5; // Ensure progress bar is below the steps
+    .progress{
+        background-color:#1ca3fd;
+        height:100%;
+        transition: 2s ease;
+    }
+  }
+  
