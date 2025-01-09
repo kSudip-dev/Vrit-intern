@@ -1,11 +1,16 @@
 import { useState } from "react"
 import "../Styles/Navigation.scss"
 import reactLogo from '../assets/react.svg'
-function Navigation() {
-    const [activeItem,setActiveItem]=useState<string>("Cards");
+
+interface NavigationProps {
+    isActive: string;
+    setActive:(item: string) => void;
+  }
+function Navigation({isActive,setActive}:NavigationProps) {
+    
 
     const handleToggle=(item:string)=>{
-        setActiveItem(item)
+        setActive(item)
     }
   return (
 
@@ -14,8 +19,8 @@ function Navigation() {
             <img src={reactLogo} alt="logo"/>
         </div>
         <ul>
-            <li className={activeItem==="Cards" ? "active": ""} onClick={()=>handleToggle("Cards")}>Cards</li>
-            <li className={activeItem==="Form" ? "active": ""} onClick={()=>handleToggle("Form")}>Form</li>
+            <li className={isActive==="Cards" ? "active": ""} onClick={()=>handleToggle("Cards")}>Cards</li>
+            <li className={isActive==="Form" ? "active": ""} onClick={()=>handleToggle("Form")}>Form</li>
         </ul>
     </nav>
   )

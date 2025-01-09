@@ -3,28 +3,17 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Navigation from './Components/Navigation'
-import CategoryManagement from './CollegeInfo/CategoryManagement'
-import CollegeManagement from './CollegeInfo/CollegeManagement'
-import CourseManagement from './CollegeInfo/CourseManagement'
-import AffiliationManagement from './CollegeInfo/AffiliationManagement'
-import SocialMediaManagement from './CollegeInfo/SocialMediaManagement'
-import EventManagement from './CollegeInfo/EventManagement'
-import GalaryManagement from './CollegeInfo/GalaryManagement'
-import StaffManagement from './CollegeInfo/StaffManagement'
+import Card from './Components/Card'
+import Form from './Components/Form'
 
 function App() {
-
+  const [activeItem,setActiveItem]=useState<string>("Cards");
   return (
     <>
-      <Navigation/>
-      <CategoryManagement/>
-      <CollegeManagement/>
-      <CourseManagement/>
-      <AffiliationManagement/>
-      <SocialMediaManagement/>
-      <EventManagement/>
-      <GalaryManagement/>
-      <StaffManagement/>
+      <Navigation isActive={activeItem} setActive={setActiveItem}/>
+
+      {activeItem === "Cards" && <Card />}
+      {activeItem === "Form" && <Form />}
     </>
   )
 }
